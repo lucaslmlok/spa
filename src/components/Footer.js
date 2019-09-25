@@ -65,9 +65,7 @@ export default class Footer extends Component {
           </div>
           <div className="company-map">
             <Map
-              googleMapURL={
-                "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDFG_3PF0hFGfh6WJ2zgRdmBaG04mX882o"
-              }
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `100%` }} />}
               mapElement={<div style={{ height: `100%` }} />}
