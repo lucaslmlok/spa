@@ -1,12 +1,14 @@
 {
   "name": "resort",
   "version": "0.1.0",
+  "homepage": "https://lucaslmlok.github.io/spa",
   "private": true,
   "dependencies": {
     "aos": "^2.3.4",
     "classnames": "^2.2.6",
     "contentful": "^7.9.1",
     "core-js": "^3.2.1",
+    "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-google-maps": "^9.4.5",
