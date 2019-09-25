@@ -1,6 +1,5 @@
-
-import React from 'react'
-import backgroundVideo from '../images/video.mp4'
+import React from "react";
+import backgroundVideo from "../images/video.mp4";
 
 const VideoHero = () => {
   return (
@@ -10,7 +9,7 @@ const VideoHero = () => {
         Your browser does not support the video tag.
       </video>
     </div>
-  )
-}
+  );
+};
 
-export default VideoHero
+export default VideoHero;

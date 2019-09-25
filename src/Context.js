@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Client from './Contentful'
+import React, { Component } from "react";
+import Client from "./Contentful";
 
 const RoomContext = React.createContext();
 
@@ -25,7 +25,7 @@ class RoomProvider extends Component {
     try {
       let response = await Client.getEntries({
         content_type: "beachResort",
-        order: "fields.capacity,fields.price",
+        order: "fields.capacity,fields.price"
       });
       let rooms = this.formatData(response.items);
       let featuredRooms = rooms.filter(room => room.featured === true);
@@ -45,7 +45,7 @@ class RoomProvider extends Component {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   componentDidMount() {
     this.getData();
@@ -55,8 +55,7 @@ class RoomProvider extends Component {
   formatData(items) {
     let tempItems = items.map(item => {
       let id = item.sys.id;
-      let images = item.fields.images.map(image =>
-        image.fields.file.url);
+      let images = item.fields.images.map(image => image.fields.file.url);
       let room = { ...item.fields, images, id };
       return room;
     });
@@ -64,25 +63,38 @@ class RoomProvider extends Component {
   }
 
   //get room object by url slug
-  getRoom = (slug) => {
+  getRoom = slug => {
     let tempRooms = [...this.state.rooms];
     const room = tempRooms.find(room => room.slug === slug);
     return room;
-  }
+  };
 
   //handle change from search event
-  handleChange = (event) => {
+  handleChange = event => {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = event.target.name;
-    this.setState({
-      [name]: value
-    }, this.filterRooms);
-  }
+    this.setState(
+      {
+        [name]: value
+      },
+      this.filterRooms
+    );
+  };
 
   //filter rooms after change event happens
   filterRooms = () => {
-    let { rooms, type, capacity, price, maxPrice, minSize, maxSize, breakfast, pets } = this.state;
+    let {
+      rooms,
+      type,
+      capacity,
+      price,
+      maxPrice,
+      minSize,
+      maxSize,
+      breakfast,
+      pets
+    } = this.state;
     let tempRooms = [...rooms];
 
     capacity = parseInt(capacity);
@@ -90,7 +102,7 @@ class RoomProvider extends Component {
     minSize = parseInt(minSize);
     maxSize = parseInt(maxSize);
 
-    if (type !== 'all') {
+    if (type !== "all") {
       tempRooms = tempRooms.filter(room => room.type === type);
     }
     if (capacity !== 1) {
@@ -99,7 +111,9 @@ class RoomProvider extends Component {
     if (price !== maxPrice) {
       tempRooms = tempRooms.filter(room => room.price <= price);
     }
-    tempRooms = tempRooms.filter(room => minSize <= room.size && room.size <= maxSize);
+    tempRooms = tempRooms.filter(
+      room => minSize <= room.size && room.size <= maxSize
+    );
     if (breakfast) {
       tempRooms = tempRooms.filter(room => room.breakfast === true);
     }
@@ -110,15 +124,17 @@ class RoomProvider extends Component {
     this.setState({
       sortedRooms: tempRooms
     });
-  }
+  };
 
   render() {
     return (
-      <RoomContext.Provider value={{
-        ...this.state,
-        getRoom: this.getRoom,
-        handleChange: this.handleChange
-      }}>
+      <RoomContext.Provider
+        value={{
+          ...this.state,
+          getRoom: this.getRoom,
+          handleChange: this.handleChange
+        }}
+      >
         {this.props.children}
       </RoomContext.Provider>
     );
@@ -135,7 +151,7 @@ export function withRoomConsumer(Component) {
         {value => <Component {...props} context={value} />}
       </RoomConsumer>
     );
-  }
+  };
 }
 
 export { RoomProvider, RoomConsumer, RoomContext };

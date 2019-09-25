@@ -1,13 +1,13 @@
-import React from 'react'
-import loadingGif from '../images/loading.gif'
+import React from "react";
+import loadingGif from "../images/loading.gif";
 
 const Loading = () => {
-    return (
-        <div className="loading">
-            <h4>rooms data loading...</h4>
-            <img src={loadingGif} alt="" />
-        </div>
-    )
-}
+  return (
+    <div className="loading">
+      <h4>rooms data loading...</h4>
+      <img src={loadingGif} alt="" />
+    </div>
+  );
+};
 
-export default Loading
+export default Loading;

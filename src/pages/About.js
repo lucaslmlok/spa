@@ -2,24 +2,24 @@ import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
-import RoomContainer from "../components/RoomContainer";
+import AboutList from "../components/AboutList";
 
-const Rooms = () => {
+const About = () => {
   return (
     <>
-      <Hero hero="roomsHero">
+      <Hero hero="aboutHero">
         <Banner
-          title="Guest Rooms"
-          subtitle="Experience our warm hospitality here"
+          title="About us"
+          subtitle="The best place to escape, relax and unwind"
         >
           <Link to="/" className="btn-primary">
             return home
           </Link>
         </Banner>
       </Hero>
-      <RoomContainer />
+      <AboutList />
     </>
   );
 };
 
-export default Rooms;
+export default About;

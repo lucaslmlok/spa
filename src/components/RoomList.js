@@ -1,5 +1,5 @@
-import React from 'react'
-import Room from './Room'
+import React from "react";
+import Room from "./Room";
 
 const RoomList = ({ rooms }) => {
   if (rooms.length === 0) {
@@ -17,7 +17,7 @@ const RoomList = ({ rooms }) => {
         })}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default RoomList
+export default RoomList;
