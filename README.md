@@ -2,7 +2,7 @@
 
 ### URL
 
-You can visit the website at https://lucaslmlok.github.io/spa-website.
+You can visit the website at https://lucas-spa.netlify.app/.
 
 ### Tech
 
