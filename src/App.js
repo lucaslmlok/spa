@@ -31,5 +31,7 @@ export default App;
 
 // Animate on scroll
 AOS.init({
-  once: true
+  once: true,
 });
+
+// Deployed
